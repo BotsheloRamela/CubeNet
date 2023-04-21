@@ -52,6 +52,11 @@ public class GameServer {
                     DataOutputStream out1 = new DataOutputStream(playerSockets[0].getOutputStream());
                     DataInputStream in2 = new DataInputStream(playerSockets[1].getInputStream());
                     DataOutputStream out2 = new DataOutputStream(playerSockets[1].getOutputStream());
+
+                    new Thread(() -> readFromClient(in1, 0)).start();
+                    new Thread(() -> readFromClient(in2, 1)).start();
+                    new Thread(() -> writeToClient(out1, 0)).start();
+                    new Thread(() -> writeToClient(out2, 1)).start();
                 }
             }
             System.out.println("No longer accepting connections");
