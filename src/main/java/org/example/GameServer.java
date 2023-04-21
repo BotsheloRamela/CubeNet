@@ -71,4 +71,9 @@ public class GameServer {
             System.out.println("InterruptedException from WTC run() in GameServer");
         }
     }
+
+    public static void main(String[] args) {
+        GameServer gameServer = new GameServer();
+        gameServer.acceptConnections();
+    }
 }
