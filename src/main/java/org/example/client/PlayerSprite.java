@@ -3,7 +3,7 @@
  It contains methods for drawing and moving the sprite.
  */
 
-package org.example;
+package org.example.client;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
