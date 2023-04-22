@@ -8,24 +8,6 @@ To run this game, you will need:
 - Java Development Kit (JDK) 8 or later
 - Git
 
-### Installation
-1. Clone the repository:
-```
-  git clone https://github.com/BotsheloRamela/CubeNet.git
-```
-
-2. Build the project:
-```
-  cd CubeNet
-```
-```
-  javac *.java
-```
-
-3. Run the game:
-```
-  java CubeNet
-```
 
 ## Gameplay
 The game is played on a 2D cube where the players can move around. Each player can move up, down, left, or right.
