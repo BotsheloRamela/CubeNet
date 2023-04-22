@@ -22,4 +22,28 @@ public class PlayerSprite {
         graphics2D.setColor(color);
         graphics2D.fill(square);
     }
+
+    public void moveHorizontal(double speed) {
+        x += speed;
+    }
+
+    public void moveVertical(double speed) {
+        y += speed;
+    }
+
+    public void setX(double n) {
+        x = n;
+    }
+
+    public void setY(double n) {
+        y = n;
+    }
+
+    public double getX() {
+        return this.x;
+    }
+
+    public double getY() {
+        return this.y;
+    }
 }
