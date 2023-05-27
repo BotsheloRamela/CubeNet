@@ -60,6 +60,24 @@ public class GameServer {
         }
     }
 
+    /**
+     Reads data from the client using the provided DataInputStream object and updates the player information accordingly.
+     @param in The DataInputStream object to read data from the client.
+     */
+    private void readFromClient(DataInputStream in) {
+        try {
+            while (true) {
+                int playerID = in.readInt();
+                double x = in.readDouble();
+                double y = in.readDouble();
+                double angle = in.readDouble();
+
+            }
+        } catch (IOException e) {
+            System.out.println("IOException from RFC run() in GameServer");
+        }
+    }
+
 
     public static void main(String[] args) {
         GameServer gameServer = new GameServer();
