@@ -12,7 +12,8 @@ import java.net.*;
  to the clients.
  */
 public class GameServer {
-    private int numPlayers = 0, maxPlayers = 2;
+    private int numPlayers = 0;
+    private int MAX_PLAYERS = GameConfig.MAX_PLAYERS;
     private final int PORT = GameConfig.PORT;
 
     /**
@@ -35,21 +36,33 @@ public class GameServer {
     public void acceptConnections() {
         try {
             System.out.println("Waiting for connections...");
-            while (numPlayers < maxPlayers) {
+            while (numPlayers < MAX_PLAYERS) {
                 ServerSocketHandler.acceptSocketConnections();
-                numPlayers++;
                 Socket socket = ServerSocketHandler.getSocket();
+
                 CommunicationsHandler.startServerCommunications(socket);
                 DataInputStream in = CommunicationsHandler.getInputStream();
                 DataOutputStream out = CommunicationsHandler.getOutputStream();
+
+                ServerSocketHandler.addPlayerSocket(socket, numPlayers);
+                numPlayers++;
+
                 ClientHandler handler = new ClientHandler(numPlayers, socket, in, out);
                 handler.start();
 
                 out.writeInt(numPlayers);
                 System.out.println("Player #" + numPlayers + " has connected.");
 
-                if (numPlayers == GameConfig.MAX_PLAYERS) {
-                    System.out.println("Starting game!");
+                if (numPlayers == MAX_PLAYERS) {
+                    for (int i = 0; i < MAX_PLAYERS; i++) {
+                        Socket[] playerSockets = ServerSocketHandler.getPlayerSockets();
+                        DataInputStream playerIn = new DataInputStream(playerSockets[i].getInputStream());
+                        DataOutputStream playerOut = new DataOutputStream(playerSockets[i].getOutputStream());
+
+                        // Start the threads for reading and writing to each player
+                        new Thread(() -> readFromClients(playerIn)).start();
+                        new Thread(() -> writeToClients(playerOut)).start();
+                    }
                 }
             }
             System.out.println("No longer accepting connections");

@@ -11,7 +11,7 @@ import java.net.Socket;
  * It handles the setup and acceptance of socket connections from clients.*/
 public class ServerSocketHandler {
     private static ServerSocket serverSocket;
-    private final Socket[] playerSockets = new Socket[GameConfig.MAX_PLAYERS];
+    private static final Socket[] playerSockets = new Socket[GameConfig.MAX_PLAYERS];
     private static final int PORT = GameConfig.PORT;
     private static Socket socket;
 
@@ -25,5 +25,13 @@ public class ServerSocketHandler {
 
     public static Socket getSocket() {
         return socket;
+    }
+
+    public static void addPlayerSocket(Socket socket, int index) {
+        playerSockets[index] = socket;
+    }
+
+    public static Socket[] getPlayerSockets() {
+        return playerSockets;
     }
 }
