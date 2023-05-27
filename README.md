@@ -8,13 +8,13 @@ Each commit message consists of a header. The header has a special format that i
 
 The header is mandatory, and the scope of the header is optional.
 
-## Examples:
+### Examples:
 
 - feat(gameplay): Add new power-up item
 - refactor(network): Refactor TCP socket handling code
 - docs(ui): Update user manual with new controls
 
-## Types:
+### Types:
 
 - feat: Adding new game features or functionalities
 - fix: Fixing a bug or issue in the game
@@ -24,7 +24,7 @@ The header is mandatory, and the scope of the header is optional.
 - test: Adding or updating game tests to ensure functionality and quality
 - chore: Updating or maintaining game infrastructure, such as servers or databases
 
-## Scopes:
+### Scopes:
 
 - server: Changes that affect the game server
 - client: Changes that affect the game client
