@@ -8,14 +8,14 @@
 
 package org.example.server;
 import org.example.client.ClientHandler;
+import org.example.game.GameConfig;
 
 import java.io.*;
 import java.net.*;
 
 public class GameServer {
-    private ServerSocket serverSocket; // The ServerSocket object used to listen for incoming connections.
-    // The number of players currently connected to the server. | The maximum number of players that can connect to the server.
     private int numPlayers = 0, maxPlayers = 2;
+    private final int PORT = GameConfig.PORT;
 
     /**
      * Constructs a new GameServer object and creates a ServerSocket to listen for incoming connections.
@@ -23,7 +23,8 @@ public class GameServer {
     public GameServer() {
         System.out.println("===== GAME SERVER =====");
         try {
-            serverSocket = new ServerSocket(4545);
+            ServerSocketHandler.startServerSocket();
+            System.out.println("Started server on IP Address: " + GameConfig.SERVER_IP_ADDRESS + " | PORT: " + PORT);
         } catch (IOException e) {
             System.out.println("IOException from GameServer");
         }
@@ -37,9 +38,9 @@ public class GameServer {
         try {
             System.out.println("Waiting for connections...");
             while (numPlayers < maxPlayers) {
-                Socket socket = serverSocket.accept();
+                ServerSocketHandler.acceptSocketConnections();
                 numPlayers++;
-
+                Socket socket = ServerSocketHandler.getSocket();
                 DataInputStream in = new DataInputStream(socket.getInputStream());
                 DataOutputStream out = new DataOutputStream(socket.getOutputStream());
                 ClientHandler handler = new ClientHandler(numPlayers, socket, in, out);
@@ -48,7 +49,7 @@ public class GameServer {
                 out.writeInt(numPlayers);
                 System.out.println("Player #" + numPlayers + " has connected.");
 
-                if (numPlayers == 2) {
+                if (numPlayers == GameConfig.MAX_PLAYERS) {
                     System.out.println("Starting game!");
                 }
             }
