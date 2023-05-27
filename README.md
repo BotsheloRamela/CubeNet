@@ -1,5 +1,5 @@
 # CubeNet
-CubeNet is a 2D cube TCP multiplayer game built with Java. The game uses Java Swing for the GUI and currently only supports a maximum of 2 players who can move around. The objective of the game is to navigate through the 2D cube and reach the finish line before your opponent does.
+CubeNet is a 2D cube TCP multiplayer game built with Java. The game uses Java Swing for the GUI and allows players to engage in exciting battles. The objective of the game is to shoot and destroy other players while avoiding getting shot yourself. Gain points for successfully eliminating opponents and demonstrate your skills in strategic combat. The game currently supports a maximum of 2 players who can move around and engage in intense battles within the 2D cube arena.
 
 ## Getting Started
 ### Prerequisites
