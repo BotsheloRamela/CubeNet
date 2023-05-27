@@ -5,8 +5,6 @@
 
 package org.example.cubenet.player;
 
-import javax.swing.text.Position;
-
 public class PlayerManager {
 
     private static class Player {
