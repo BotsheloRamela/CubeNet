@@ -1,10 +1,9 @@
+package org.example.cubenet.player;
+
 /**
  * The PlayerManager class is responsible for managing player positions, angles, usernames, health, and ammo.
  * It provides methods for updating and retrieving various attributes of players.
  */
-
-package org.example.cubenet.player;
-
 public class PlayerManager {
 
     private static class Player {

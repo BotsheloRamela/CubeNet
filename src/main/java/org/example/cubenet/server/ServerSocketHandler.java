@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * The ServerSocketHandler class is responsible for managing the server-side socket connections in a server-client architecture.
+ * It handles the setup and acceptance of socket connections from clients.*/
 public class ServerSocketHandler {
     private static ServerSocket serverSocket;
     private final Socket[] playerSockets = new Socket[GameConfig.MAX_PLAYERS];

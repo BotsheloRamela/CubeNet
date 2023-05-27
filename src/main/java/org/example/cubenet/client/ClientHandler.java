@@ -1,9 +1,3 @@
-/**
- * A class representing a client handler for the game server.
- * Each instance of this class represents a client connected to the server.
- * It manages the communication with the client, exchanging player positions with the other client.
- */
-
 package org.example.cubenet.client;
 
 import java.io.DataInputStream;
@@ -11,6 +5,11 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
+/**
+ * A class representing a client handler for the game server.
+ * Each instance of this class represents a client connected to the server.
+ * It manages the communication with the client, exchanging player positions with the other client.
+ */
 public class ClientHandler extends Thread {
 
     private int numPlayers = 0, maxPlayers = 2;

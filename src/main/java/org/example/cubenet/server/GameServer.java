@@ -1,11 +1,3 @@
-/**
-
- The GameServer class represents a server that coordinates communication between two clients playing a game.
- The server listens for incoming connections, accepts two clients, and starts two threads to handle communication
- between the two clients. The server constantly updates the positions of the players and sends the updated positions
- to the clients.
- */
-
 package org.example.cubenet.server;
 import org.example.cubenet.client.ClientHandler;
 import org.example.cubenet.game.GameConfig;
@@ -13,6 +5,12 @@ import org.example.cubenet.game.GameConfig;
 import java.io.*;
 import java.net.*;
 
+/**
+ The GameServer class represents a server that coordinates communication between two clients playing a game.
+ The server listens for incoming connections, accepts two clients, and starts two threads to handle communication
+ between the two clients. The server constantly updates the positions of the players and sends the updated positions
+ to the clients.
+ */
 public class GameServer {
     private int numPlayers = 0, maxPlayers = 2;
     private final int PORT = GameConfig.PORT;
