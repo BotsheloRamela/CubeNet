@@ -5,7 +5,8 @@ CubeNet is a 2D cube TCP multiplayer game built with Java. The game uses Java Sw
 ### Prerequisites
 To run this game, you will need:
 
-- Java Development Kit (JDK) 8 or later
+- Java Development Kit (JDK) 19
+- Maven
 - Git
 
 
