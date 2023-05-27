@@ -4,7 +4,7 @@
  * It manages the communication with the client, exchanging player positions with the other client.
  */
 
-package org.example.client;
+package org.example.cubenet.client;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

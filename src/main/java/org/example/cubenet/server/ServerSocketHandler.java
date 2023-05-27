@@ -1,6 +1,6 @@
-package org.example.server;
+package org.example.cubenet.server;
 
-import org.example.game.GameConfig;
+import org.example.cubenet.game.GameConfig;
 
 import java.io.IOException;
 import java.net.ServerSocket;

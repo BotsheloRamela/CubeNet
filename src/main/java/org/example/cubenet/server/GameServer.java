@@ -6,9 +6,9 @@
  to the clients.
  */
 
-package org.example.server;
-import org.example.client.ClientHandler;
-import org.example.game.GameConfig;
+package org.example.cubenet.server;
+import org.example.cubenet.client.ClientHandler;
+import org.example.cubenet.game.GameConfig;
 
 import java.io.*;
 import java.net.*;

@@ -1,4 +1,4 @@
-package org.example.game;
+package org.example.cubenet.game;
 
 public interface GameConfig {
     int SCREEN_WIDTH = 720;

@@ -3,7 +3,7 @@
  It contains methods for drawing and moving the sprite.
  */
 
-package org.example.client;
+package org.example.cubenet.client;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;

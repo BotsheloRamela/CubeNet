@@ -1,4 +1,4 @@
-package org.example.server;
+package org.example.cubenet.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
