@@ -41,8 +41,9 @@ public class GameServer {
                 ServerSocketHandler.acceptSocketConnections();
                 numPlayers++;
                 Socket socket = ServerSocketHandler.getSocket();
-                DataInputStream in = new DataInputStream(socket.getInputStream());
-                DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+                CommunicationsHandler.startServerCommunications(socket);
+                DataInputStream in = CommunicationsHandler.getInputStream();
+                DataOutputStream out = CommunicationsHandler.getOutputStream();
                 ClientHandler handler = new ClientHandler(numPlayers, socket, in, out);
                 handler.start();
 
