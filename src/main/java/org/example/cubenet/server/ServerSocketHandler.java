@@ -34,4 +34,15 @@ public class ServerSocketHandler {
     public static Socket[] getPlayerSockets() {
         return playerSockets;
     }
+
+    public static void closeSocketConnections() {
+        try {
+            for (int i = 0; i < GameConfig.MAX_PLAYERS; i++) {
+                playerSockets[i].close();
+            }
+            serverSocket.close();
+        } catch (IOException e) {
+            System.out.println("IOException from closeConnections() in ServerSocketHandler");
+        }
+    }
 }
