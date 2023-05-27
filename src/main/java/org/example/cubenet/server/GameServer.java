@@ -108,6 +108,12 @@ public class GameServer {
         }
     }
 
+    public void shutdownServer() {
+        System.out.println("SERVER SHUTTING DOWN...");
+        ServerSocketHandler.closeSocketConnections();
+        System.exit(0);
+    }
+
 
     public static void main(String[] args) {
         GameServer gameServer = new GameServer();
