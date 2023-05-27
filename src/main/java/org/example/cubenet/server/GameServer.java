@@ -64,7 +64,7 @@ public class GameServer {
      Reads data from the client using the provided DataInputStream object and updates the player information accordingly.
      @param in The DataInputStream object to read data from the client.
      */
-    private void readFromClient(DataInputStream in) {
+    private void readFromClients(DataInputStream in) {
         try {
             while (true) {
                 int playerID = in.readInt();
@@ -75,6 +75,25 @@ public class GameServer {
             }
         } catch (IOException e) {
             System.out.println("IOException from RFC run() in GameServer");
+        }
+    }
+
+    /**
+     Writes player data to clients using a DataOutputStream.
+     @param out The DataOutputStream used to send data to clients.
+     */
+    private void writeToClients(DataOutputStream out) {
+        try {
+            for (int i = 0; i < numPlayers; i++) {
+                out.writeUTF("We now have " + numPlayers + " players. GO!");
+            }
+
+            while (true) {
+                // write player data
+            }
+
+        } catch (IOException e) {
+            System.out.println("IOException from WTC run() in GameServer");
         }
     }
 
